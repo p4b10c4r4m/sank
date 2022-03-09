@@ -23,23 +23,25 @@
     </header>
     
     <!-- header fin -->
-    <section>
-        <form action="" method="post" enctype="">
-            <label for="nombre"></label>
-            <input type="text" name="nombre" placeholder="Nombre">
-            <label for="email"></label>
-            <input type="email" name="email" placeholder="e-mail">
-            <label for="telefono"></label>
-            <input type="number" name="telefono" placeholder="Teléfono">
-            <br>
-            <label for="asunto"></label>
-            <input type="text" name="asunto" placeholder="Asunto">
-            <br>
-            <label for="mensaje"></label>
-            <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
-            <br>
-            <button type="button" class="btn btn-success">Enviar</button>
-        </form>
+    <section class="contacto--">
+      <p class="textocont">Dejanos tu consulta o comentario y nos contactaremos a la brevedad</p>
+      
+      <input type="text" class="form-control" placeholder="Nombre">
+      <label for="formControlInput" class="form-label"></label>
+      
+      <input type="email" class="form-control" id="formControlInput" placeholder="name@example.com">
+      
+      <input type="number" class="form-control" placeholder="Telefono">
+      <label for="formControlInput" class="form-label"></label>
+
+      <input type="text" class="form-control" placeholder="Asunto">
+      <label for="formControlInput" class="form-label"></label>
+
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
+        <label for="floatingTextarea">Mensaje</label>
+      </div>
+
     </section>
 
 <!-- footer sin boton contactanos-->
