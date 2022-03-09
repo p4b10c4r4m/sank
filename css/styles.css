@@ -189,8 +189,20 @@ footer img {
   width: 100px;
 }
 
+.contacto-- {
+  display: flex;
+  flex-direction: column;
+}
+
 .textocont {
   background-color: antiquewhite;
+  position: relative;
+  top: 20px;
+}
+
+.btn {
+  width: 100px;
+  align-self: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
