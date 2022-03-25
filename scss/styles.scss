@@ -92,7 +92,6 @@ $shad in $sombras {
     .d-#{$dosha} {
         filter: drop-shadow(0px 5px 5px $shad);
     }
-
 }
 
 @mixin size ($ancho, $alto) {
@@ -101,8 +100,7 @@ $shad in $sombras {
 }
 
 .item {
-    @include size (320px, 500px);
-    // filter: drop-shadow(0 5px 5px aquamarine); 
+    @include size (320px, 500px); 
 }
 
 .pict {
@@ -115,6 +113,18 @@ $shad in $sombras {
 .pict:hover {
     transform: scale(1.05);
 }
+
+.pict-dosh {
+    @include size (30%, 30%);
+    object-fit: contain;
+    transition: all 300ms;
+    position: relative;
+}
+
+.pict-dosh:hover {
+    transform: scale(1.03);
+}
+
 
 /* inicio carousel */
 
@@ -157,6 +167,18 @@ $darkgrey: rgba(18, 24, 24, 0.712);
 .carousel-control-next {
     @extend .carousel-control-prev;
 }
+
+// html vata
+.img--pitta{
+    height: 150px;
+}
+.img--kapha{
+    height: 150px;
+}
+.link--doshas{
+    position: sticky;
+}
+
 
 /* inicio footer */
 .linkfooter {
@@ -209,7 +231,7 @@ footer img {
     width: 100px;
 }
 
-.contacto--{
+.contacto-- {
     display: flex;
     flex-direction: column;
 }
@@ -220,12 +242,7 @@ footer img {
     top: 20px;
 }
 
-.btn{
+.btn {
     width: 100px;
     align-self: center;
 }
-
-
-
-
-

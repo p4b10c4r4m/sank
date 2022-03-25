@@ -108,6 +108,18 @@ main {
   transform: scale(1.05);
 }
 
+.pict-dosh {
+  width: 30%;
+  height: 30%;
+  object-fit: contain;
+  transition: all 300ms;
+  position: relative;
+}
+
+.pict-dosh:hover {
+  transform: scale(1.03);
+}
+
 /* inicio carousel */
 .carousel-inner {
   background-image: url(../imagenes/background.png);
@@ -140,6 +152,18 @@ main {
 
 .carousel-control-prev, .carousel-control-next {
   background-color: #1f3333;
+}
+
+.img--pitta {
+  height: 150px;
+}
+
+.img--kapha {
+  height: 150px;
+}
+
+.link--doshas {
+  position: sticky;
 }
 
 /* inicio footer */
