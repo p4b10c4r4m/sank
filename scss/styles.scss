@@ -1,77 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&family=Sue+Ellen+Francisco&display=swap');
+
 
 * {
     margin: 0;
     padding: 0;
 }
 
+$nav: #f5f5ed;
+$main: #FFFFFC;
+$vata: #9bf6ff;
+$pitta: #e7c294;
+$kapha: #a4ec95;
+
+
+// inicio header
+
 header {
     font-family: 'Montserrat', sans-serif;
-    background-color: aquamarine;
-    width: 100%;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    background-image: linear-gradient(to right, aquamarine, rgb(125, 6, 161));
-}
-
-@media (max-width: 767px) {
-    header {
-        height: 150px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-    }
-}
-
-header nav ul {
-    display: flex;
-    flex-direction: row;
-}
-
-@media (max-width: 767px) {
-    header nav ul {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
-header h1 {
-    text-align: left;
-    line-height: 80%;
-    font-size: 35px;
-}
-
-.home {
-    text-align: left;
-    line-height: 80%;
-    font-size: 35px;
-    text-decoration: none;
-    list-style-type: none;
-    color: black;
-}
-
-nav ul li {
-    text-decoration: none;
-    list-style-type: none;
-    margin-left: 1rem;
-}
-
-nav a {
-    text-decoration: none;
-    color: rgb(10, 3, 26);
+    background-color: $nav;
     text-transform: capitalize;
-    vertical-align: bottom;
+}
+.navbar-brand{
+    font-family: 'Sue Ellen Francisco', cursive; 
+    font-size: 3em;
+    text-transform: none;
+    letter-spacing: 0.15em;
+    padding-left: 0.4em;
+    padding-bottom: 0.2em;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: black;
     font-weight: bold;
+    padding-left: 1,5em;
+    font-size: 1.3em;
+}
+#navbarNavAltMarkup{
+    padding-left: 2em;
 }
 
-nav a:hover {
-    color: aqua;
-    transition: 0.7s;
-}
+// fin header
 
 main {
     font-family: 'Montserrat', sans-serif;
+    background-color: $main;
 }
 
 .doshas {
@@ -82,9 +53,9 @@ main {
     padding-top: 5px;
 }
 
-$sombras:(vata: aquamarine,
-    pitta: orange,
-    kapha: green,
+$sombras:(vata: $vata,
+    pitta: $pitta,
+    kapha: $kapha,
 );
 
 @each $dosha,
@@ -132,13 +103,19 @@ $gris: rgb(31, 51, 51);
 $darkgrey: rgba(18, 24, 24, 0.712);
 
 .carousel-inner {
-    background-image: url(../imagenes/background.png);
     border-style: solid;
     border-color: $gris;
     border-width: 1px;
     display: flex;
     justify-content: center;
-    justify-content: space-between
+    justify-content: space-between;
+    background-image: url(../imagenes/skulls.png);
+}
+
+.w-car{
+    width: 80%;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .w-100 {
@@ -148,7 +125,7 @@ $darkgrey: rgba(18, 24, 24, 0.712);
 }
 
 .carousel-caption {
-    color: white;
+    color: black;
     display: flex;
     flex-wrap: wrap;
     width: 70%;
@@ -157,65 +134,75 @@ $darkgrey: rgba(18, 24, 24, 0.712);
 
 .d-sm-block {
     display: block !important;
-    background-color: $darkgrey
+    background-color: #ffc6ff;
 }
 
-.carousel-control-prev {
-    background-color: $gris;
+.carousel-control-next-icon{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/271/271228.png);
+}
+.carousel-control-prev-icon{
+    background-image: url(https://cdn-icons-png.flaticon.com/512/271/271220.png);
 }
 
-.carousel-control-next {
-    @extend .carousel-control-prev;
+// doshas
+
+.link--doshas img{
+    height: 350px;
+    padding: 2em;
 }
 
-// html vata
-.img--pitta{
-    height: 150px;
-}
-.img--kapha{
-    height: 150px;
-}
 .link--doshas{
-    position: sticky;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
+.img-fluid{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.container-fluid h5{
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
+.container-fluid ul li{
+    margin-bottom: 1.2em;
+}
 
 /* inicio footer */
 .linkfooter {
     grid-area: lf;
+    padding-top: 1em;
 }
-
 .direccion {
     grid-area: dir;
+    padding-top: 0.8em;
+    padding-bottom: 2em;
 }
-
 .mapa {
     grid-area: map;
+    padding-top: 2em;
 }
 
 .footer {
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr;
+    grid-template-columns: 30% 30% 30%;
     grid-template-rows: 1fr;
+    padding-left: 5%;
+    padding-right: 5%;
     font-family: 'Montserrat', sans-serif;
-    background-color: aquamarine;
-    align-items: center;
-    background-image: linear-gradient(to right, aquamarine, rgb(125, 6, 161));
+    background-color: $nav;
+    align-items:initial;
     grid-template-areas:
         "lf dir map";
 }
 
-@media (max-width: 767px) {
-    .footer {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas:
-            "lf map"
-            "dir map";
-    }
+.linkcontact{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1em;
 }
-
 footer a {
     text-decoration: none;
     color: black;
@@ -223,7 +210,23 @@ footer a {
 
 footer img {
     height: 50px;
+    padding-bottom: 0.5em;
 }
+
+footer h2{
+    font-family: 'Sue Ellen Francisco', cursive; 
+    font-size: 3em;
+    text-transform: none;
+    letter-spacing: 0.15em;
+    padding-bottom: 0.5em;
+}
+
+footer h3{
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+// fin footer
 
 .contacto {
     font-family: 'Montserrat', sans-serif;
@@ -231,18 +234,62 @@ footer img {
     width: 100px;
 }
 
-.contacto-- {
+.contacto--{
     display: flex;
     flex-direction: column;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.form-floating{
+    width: 100%;
+}
+#floatingTextarea{
+    height: 200px;
 }
 
 .textocont {
-    background-color: antiquewhite;
     position: relative;
     top: 20px;
+    margin-bottom: 2em;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
 }
 
 .btn {
     width: 100px;
     align-self: center;
+    margin: 2em;
+}
+
+
+@media (max-width: 767px) {
+    .footer {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 10%;
+        padding-bottom: 2em;
+        padding-top: 2em;
+    }
+    .contacto--{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .linkfooter {
+        padding-top: 0.5em;
+    }
+    .direccion {
+        padding-top: 0.1em;
+    }
+    .mapa {
+        padding-top: 0.5em;
+    }
 }
