@@ -1,6 +1,6 @@
 let nombre = prompt("Ingrese nombre de usuario");
 console.log(nombre);
-let saludo = "Muchas gracias " + nombre;
+let saludo = `Muchas gracias ${nombre}`;
 alert(saludo)
 
 let edad = parseInt(prompt("Ingrese su edad"));
@@ -18,6 +18,22 @@ while(terapia){
     }
 }
 
-let resultado = "Muchas gracias " + nombre + " nos pondremos en contacto para coordinar su turno"
+let resultado = `Muchas gracias ${nombre} nos pondremos en contacto para coordinar su turno`
 
 alert(resultado)
+
+
+const paciente1 = {
+    nombre: nombre,
+    edad: edad, 
+}
+
+//array creado por el profesional medico
+
+const arrayPaciente1 = [paciente1]
+arrayPaciente1.push("Dosha: " + prompt(`Ingrese dosha del paciente ${nombre}`))
+arrayPaciente1.push("Ficha Medica: " + prompt(`Ingrese ficha medica del paciente ${nombre}`)),
+arrayPaciente1.push("Tratamiento: " + prompt(`Ingrese tratamiento medico del paciente ${nombre}`)),
+console.log(arrayPaciente1)
+
+alert(arrayPaciente1.join("\n"))
