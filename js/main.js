@@ -52,29 +52,49 @@ document.querySelector(`#sutras`).addEventListener('click', () => {
 
 //inicio calendario
 
-const calendario = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+fetch('../json/turnos.json')
+.then(response => response.json())
+.then(turnos => {
 
-let divTurnos = document.querySelector('#divTurnos')
-
-calendario.forEach((indice) => {
-    divTurnos.innerHTML += `
-        <div class="card" id="dia${indice}" style="width: 12rem;">
-            <div class="card-body">
-                <h5 class="card-title">${indice+1}</h5>
-                <button class="btn btn-success" id="boton${indice}">Confirmar Turno</button>
-            </div>
-        </div>
-        `
+    turnos.forEach(turno => {
+      divTurnos.innerHTML += `
+      <div class="card row" id="turno${turno.id}">
+      <div class="card-body">
+        <h5 class="card-title">Dia: ${turno.dia}</h5>
+        <p class="card-text">Hora: ${turno.hora}</p>
+        <button id="boton${turno.id}" class="btn btn-primary">Reservar Turno</button>
+      </div>
+    </div>
+      `  
+    });
 })
 
-calendario.forEach((indice) => {
-    document.querySelector(`#boton${indice}`).addEventListener('click', () => {
-        Swal.fire({
-            title: '¿Confirma Turno Consulta Ayurveda?',
-            showDenyButton: false,
-            showCancelButton: true,
-            confirmButtonText: 'Confirmo!',
-            denyButtonText: `Don't save`,
+fetch('../json/turnos.json')
+.then(response => response.json())
+.then(turnos => {
+    turnos.forEach((turno) => {
+        document.querySelector(`#boton${turno.id}`).addEventListener('click', () => {
+            Swal.fire({
+                title: '¿Confirma Turno Consulta Ayurveda?',
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: 'Confirmo!',
+                denyButtonText: `Don't save`,
+            })
         })
     })
 })
+
+
+
+const turnos = async () => {
+    let promesa = await fetch('turnos.json')
+    let productos = await promesa.json()
+
+    return turnos
+}
+turnos().then(turno => console.log(turno))
+
+
+
+

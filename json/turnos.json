@@ -1,0 +1,47 @@
+[
+    {
+        "id": "1",
+        "dia": "Lunes",
+        "hora": "10hs"
+    },
+    {
+        "id": "2",
+        "dia": "Lunes",
+        "hora": "11hs"
+    },
+    {
+        "id": "3",
+        "dia": "Lunes",
+        "hora": "12hs"
+    },
+    {
+        "id": "4",
+        "dia": "Martes",
+        "hora": "16hs"
+    },
+    {
+        "id": "5",
+        "dia": "Martes",
+        "hora": "17hs"
+    },
+    {
+        "id": "6",
+        "dia": "Martes",
+        "hora": "18hs"
+    },
+    {
+        "id": "7",
+        "dia": "Jueves",
+        "hora": "16hs"
+    },
+    {
+        "id": "8",
+        "dia": "Jueves",
+        "hora": "17hs"
+    },
+    {
+        "id": "9",
+        "dia": "Jueves",
+        "hora": "18hs"
+    }
+]
