@@ -1,29 +1,4 @@
-class Ficha {
-    constructor(nombre, dosha) {
-        this.nombre = nombre;
-        this.dosha = dosha;
-
-    }
-}
-
-let arrayPaciente1 = []
-
-document.getElementById("confirmaFicha").addEventListener("click", () => {
-    let nombre = document.querySelector("#idNombre").value
-    let dosha = document.querySelector("#idDosha").value
-
-    const arrayficha = new Ficha(nombre, dosha)
-    arrayPaciente1.push(arrayficha)
-    localStorage.setItem("dataPaciente", JSON.stringify(arrayPaciente1))
-});
-
-doshaPaciente = JSON.parse(localStorage.getItem("dataPaciente"))
-console.log(doshaPaciente)
-
-
-
-
-
+let dosha = "" ;
 
 let sutraVata = ["La longevidad requiere lentitud", "Al tocar la piel tocamos la mente" , "El silencio es un ayuno mental ideal", "Vamos despacio porque vamos lejos", "El que mira afuera sueña, el que mira adentro despierta"]
 
@@ -31,26 +6,91 @@ let sutraPitta = ["Contestar al día siguiente","El que pega para enseñar, est�
 
 let sutraKapha = ["Si pasó conviene","La seguridad es un peso que impide caminar","Amar es agarrar con la mano abierta","Aprender es cambiar de opinión","La memoria mata la inocencia","Encontrar la paz de una mente que no es prisionera de su pasado","No hacer más de lo mismo y pretender que dé distintos resultados","Soltar, olvidar y dejar","Toda estructura es inestable"]
 
-
 document.querySelector(`#sutras`).addEventListener('click', () => {
-    Toastify({
-        text: sutraKapha[sutraKapha.length * Math.random () | 0], 
-        duration: 3000,
-        destination: "",
-        newWindow: false,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
-        },
-        onClick: function(){} // Callback after click
-      }).showToast();
+
+    dosha = document.querySelector("#idDosha").value
+
+    switch (dosha) {
+        case "Vata":
+                vata();
+                break;
+        case "Pitta":
+                pitta();
+                break;
+        case "Kapha":
+                kapha();
+                break;
+        default:  
+        Swal.fire('Por favor seleccioná tu Dosha para recibir Sutras')
+    }
+
 })
+
+function vata(){        
+        Toastify({                  
+                text: sutraVata[sutraVata.length * Math.random () | 0],                
+                duration: 3000,
+                destination: "",
+                newWindow: false,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                background: "linear-gradient(to right, #005f73, #0a9396)",
+                },
+                onClick: function(){} // Callback after click
+        }).showToast();
+}
+
+function pitta(){
+
+        Toastify({               
+                text: sutraPitta[sutraPitta.length * Math.random () | 0],                
+                duration: 3000,
+                destination: "",
+                newWindow: false,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                background: "linear-gradient(to right, #f94144, #f3722c)",
+                },
+                onClick: function(){} // Callback after click
+        }).showToast();
+}
+
+function kapha(){
+
+        Toastify({               
+                text: sutraKapha[sutraKapha.length * Math.random () | 0],                
+                duration: 3000,
+                destination: "",
+                newWindow: false,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                background: "linear-gradient(to right, #90be6d, #43aa8b)",
+                },
+                onClick: function(){} // Callback after click
+        }).showToast();
+}
 
 
 //inicio calendario
+
+class Turno {
+    constructor(id, dia, hora) {
+        this.id = id;
+        this.dia = dia;
+        this.hora = hora;
+    }
+}
+
+let arrayTurno = []
 
 fetch('../json/turnos.json')
 .then(response => response.json())
@@ -58,7 +98,7 @@ fetch('../json/turnos.json')
 
     turnos.forEach(turno => {
       divTurnos.innerHTML += `
-      <div class="card row" id="turno${turno.id}">
+      <div class="card card-" id="turno${turno.id}">
       <div class="card-body">
         <h5 class="card-title">Dia: ${turno.dia}</h5>
         <p class="card-text">Hora: ${turno.hora}</p>
@@ -67,11 +107,6 @@ fetch('../json/turnos.json')
     </div>
       `  
     });
-})
-
-fetch('../json/turnos.json')
-.then(response => response.json())
-.then(turnos => {
     turnos.forEach((turno) => {
         document.querySelector(`#boton${turno.id}`).addEventListener('click', () => {
             Swal.fire({
@@ -81,20 +116,20 @@ fetch('../json/turnos.json')
                 confirmButtonText: 'Confirmo!',
                 denyButtonText: `Don't save`,
             })
+
         })
-    })
+    });
+    turnos.forEach((turno) => {
+        document.querySelector(`#boton${turno.id}`).addEventListener('click', () => {
+            let id = turno.id
+            let dia = turno.dia
+            let hora = turno.hora
+
+            const arrayReserva = new Turno (id, dia, hora)
+            arrayTurno.push(arrayReserva)
+            localStorage.setItem("Reserva", JSON.stringify(arrayTurno))
+        })
+    });
+
 })
-
-
-
-const turnos = async () => {
-    let promesa = await fetch('turnos.json')
-    let productos = await promesa.json()
-
-    return turnos
-}
-turnos().then(turno => console.log(turno))
-
-
-
 

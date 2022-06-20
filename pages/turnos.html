@@ -15,6 +15,7 @@
 
 <body>
 
+  <!-- inicio header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
@@ -49,11 +50,7 @@
 
         <section class="contacto--">
 
-            <form>
-
-                <input type="text" class="form-control" id="idNombre" placeholder="Indique su Nombre">
-                <label for="idNombre" class="form-label"></label>
-
+            <form class="doshaSutra">
                 <div class="form-floating">
                     <select class="form-select"  id="idDosha" aria-label="Floating label select example">
                       <option selected="">Selecciona tu Dosha</option>
@@ -64,19 +61,22 @@
                     <label for="idDosha">Dosha</label>
                   </div>
 
-                <button type="button" class="btn btn-info" id="confirmaFicha">Confirmar</button>
-
-                <button type="button" class="btn btn-warning" id="sutras">Sutra</button>
+                <button type="button" class="btn btn-warning btnContacto" id="sutras">Sutra</button>
         
             </form>
         </section>
 
-        <section>
-            <h3>Turnos disponibles para consultas Ayurveda para Mayo</h3>
+        <section class="calend">
+          
+          <input type="text" class="form-control form-w" id="idNombre" placeholder="Indique su Nombre">
+          <label for="idNombre" class="form-label"></label>
+
+            <h3>Turnos disponibles para consultas Ayurveda para Junio</h3>
             <div id="divTurnos" class="row"></div>
         </section>
     </main>
 
+<!-- inicio footer -->
 
     <footer class="footer">
         <div class="linkfooter">
