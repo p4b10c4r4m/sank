@@ -138,7 +138,5 @@ fetch('../json/turnos.json')
 /*let reservaa = JSON.parse(localStorage.getItem("Reserva"));
 document.getElementById("turnoReservado").innerHTML = "reservaa";*/
 
-let turnero = document.getElementById("turnoReservado")
-turnero.innerHTML = "<h2>Holaa</h2>";
 
 
